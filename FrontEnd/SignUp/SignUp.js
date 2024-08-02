@@ -16,7 +16,7 @@ $('#signupForm').submit(function (event) {
         data: JSON.stringify(userData),
         success: function (resp) {
             alert('SignUp Successfully...!');
-            window.location.href = 'index.html';
+            window.location.href = '../SignIn/SignIn.html';
         },
         error: function (xhr) {
             alert('SignUp Failed : ' + xhr.responseText);
