@@ -5,6 +5,7 @@ import lk.ijse.gdse66.jwt.entity.CustomerEntity;
 import lk.ijse.gdse66.jwt.repo.CustomerRepo;
 import lk.ijse.gdse66.jwt.service.CustomerService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,17 +20,15 @@ import java.util.UUID;
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-    CustomerRepo customerRepo;
-    ModelMapper mapper;
+    @Autowired
+    private CustomerRepo customerRepo;
 
-    public CustomerServiceImpl(CustomerRepo customerRepo, ModelMapper mapper) {
-        this.customerRepo = customerRepo;
-        this.mapper = mapper;
-    }
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
         customerDTO.setId(UUID.randomUUID().toString());
-        return mapper.map(customerRepo.save(mapper.map(customerDTO, CustomerEntity.class)), CustomerDTO.class);
+        return modelMapper.map(customerRepo.save(modelMapper.map(customerDTO, CustomerEntity.class)), CustomerDTO.class);
     }
 }

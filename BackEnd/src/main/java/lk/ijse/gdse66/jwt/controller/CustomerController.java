@@ -3,7 +3,6 @@ package lk.ijse.gdse66.jwt.controller;
 import lk.ijse.gdse66.jwt.dto.CustomerDTO;
 import lk.ijse.gdse66.jwt.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -19,7 +18,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping
     CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO) {
         return customerService.saveCustomer(customerDTO);
     }
