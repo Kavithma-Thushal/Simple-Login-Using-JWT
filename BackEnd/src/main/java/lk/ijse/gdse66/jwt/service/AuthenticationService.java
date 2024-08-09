@@ -2,7 +2,7 @@ package lk.ijse.gdse66.jwt.service;
 
 import lk.ijse.gdse66.jwt.security.auth.request.SignIn;
 import lk.ijse.gdse66.jwt.security.auth.request.SignUp;
-import lk.ijse.gdse66.jwt.security.auth.response.Token;
+import lk.ijse.gdse66.jwt.security.auth.response.Response;
 
 /**
  * @author : Kavithma Thushal
@@ -11,7 +11,7 @@ import lk.ijse.gdse66.jwt.security.auth.response.Token;
  **/
 public interface AuthenticationService {
 
-    Token signUp(SignUp signUp);
+    Response signUp(SignUp signUp);
 
-    Token signIn(SignIn signIn);
+    Response signIn(SignIn signIn);
 }

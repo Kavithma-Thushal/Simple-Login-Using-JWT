@@ -12,6 +12,6 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class Token {
+public class Response {
     private String token;
 }
