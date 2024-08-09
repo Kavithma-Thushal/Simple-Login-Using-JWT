@@ -22,7 +22,7 @@ import java.util.function.Function;
 public class JwtServiceImpl implements JwtService {
 
     @Value("${token.key}")
-    String jwtKey;
+    private String jwtKey;
 
     @Override
     public String extractUserName(String token) {

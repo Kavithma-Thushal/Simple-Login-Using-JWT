@@ -1,6 +1,5 @@
 package lk.ijse.gdse66.jwt.service;
 
-import lk.ijse.gdse66.jwt.dto.UserDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -9,8 +8,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @since : 12:47 PM - 8/5/2024
  **/
 public interface UserService {
-
-    void Save(UserDTO userDTO);
-
     UserDetailsService userDetailService();
 }

@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -29,11 +28,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
+    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final UserRepo userRepo;
-    private final ModelMapper mapper;
-    private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
+    private final ModelMapper modelMapper;
 
     @Override
     public Response signUp(SignUp signUp) {
@@ -45,16 +44,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .password(passwordEncoder.encode(signUp.getPassword()))
                 .role(Role.valueOf(signUp.getRole()))
                 .build();
-        UserEntity savedUser = userRepo.save(mapper.map(userDTO, UserEntity.class));
-        String generatedToken = jwtService.generateToken(savedUser);
+        UserEntity signUpUser = userRepo.save(modelMapper.map(userDTO, UserEntity.class));
+        String generatedToken = jwtService.generateToken(signUpUser);
         return Response.builder().token(generatedToken).build();
     }
 
     @Override
     public Response signIn(SignIn signIn) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signIn.getEmail(), signIn.getPassword()));
-        UserEntity user = userRepo.findByEmail(signIn.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User Not Found...!"));
-        String generatedToken = jwtService.generateToken(user);
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signIn.getEmail(), signIn.getPassword()));
+        UserEntity signInUser = userRepo.findByEmail(signIn.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User Not Found...!"));
+        String generatedToken = jwtService.generateToken(signInUser);
         return Response.builder().token(generatedToken).build();
     }
 }
