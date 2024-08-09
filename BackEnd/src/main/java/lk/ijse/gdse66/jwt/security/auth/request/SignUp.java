@@ -12,8 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 public class SignUp {
-    private String firstName;
-    private String lastName;
+    private String name;
     private String email;
     private String password;
     private String role;

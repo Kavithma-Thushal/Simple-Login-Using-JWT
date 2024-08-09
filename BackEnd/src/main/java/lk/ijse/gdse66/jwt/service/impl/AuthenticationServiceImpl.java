@@ -38,8 +38,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public Response signUp(SignUp signUp) {
         UserDTO userDTO = UserDTO.builder()
                 .id(UUID.randomUUID().toString())
-                .firstName(signUp.getFirstName())
-                .lastName(signUp.getLastName())
+                .name(signUp.getName())
                 .email(signUp.getEmail())
                 .password(passwordEncoder.encode(signUp.getPassword()))
                 .role(Role.valueOf(signUp.getRole()))

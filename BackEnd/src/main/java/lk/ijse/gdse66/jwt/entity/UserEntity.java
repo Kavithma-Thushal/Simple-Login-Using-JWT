@@ -22,13 +22,17 @@ import java.util.HashSet;
 @Entity
 @Table(name = "user")
 public class UserEntity implements UserDetails {
+
     @Id
     private String id;
-    private String firstName;
-    private String lastName;
+
+    private String name;
+
     @Column(unique = true)
     private String email;
+
     private String password;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
