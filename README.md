@@ -32,11 +32,11 @@ interactions.
 
 ## SignUp
 
-<img src="ss/signup.png">
+<img src="ss/SignUp.png">
 
 ## SignIn
 
-<img src="ss/signin.png">
+<img src="ss/SignIn.png">
 
 ## Version
 
