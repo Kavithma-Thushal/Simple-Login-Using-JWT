@@ -19,7 +19,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping
-    CustomerDTO saveCustomer(@RequestBody CustomerDTO customerDTO) {
-        return customerService.saveCustomer(customerDTO);
+    public void saveCustomer(@RequestBody CustomerDTO customerDTO) {
+        customerService.saveCustomer(customerDTO);
     }
 }

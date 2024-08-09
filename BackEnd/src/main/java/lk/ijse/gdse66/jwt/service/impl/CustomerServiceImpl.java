@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.UUID;
-
 /**
  * @author : Kavithma Thushal
  * @project : Simple-Login-Using-JWT
@@ -27,8 +25,9 @@ public class CustomerServiceImpl implements CustomerService {
     private ModelMapper modelMapper;
 
     @Override
-    public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
-        customerDTO.setId(UUID.randomUUID().toString());
-        return modelMapper.map(customerRepo.save(modelMapper.map(customerDTO, CustomerEntity.class)), CustomerDTO.class);
+    public void saveCustomer(CustomerDTO customerDTO) {
+        if (!customerRepo.existsById(customerDTO.getId())) {
+            customerRepo.save(modelMapper.map(customerDTO, CustomerEntity.class));
+        }
     }
 }
