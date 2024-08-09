@@ -14,7 +14,7 @@ $('#signinForm').submit(function (event) {
         success: function (resp) {
             alert('SignIn Successfully...!');
             localStorage.setItem('token', resp.token);
-            window.location.href = '../index.html';
+            window.location.href = '../Customer/Customer.html';
         },
         error: function (xhr) {
             alert('SigniIn Failed : ' + xhr.responseText);

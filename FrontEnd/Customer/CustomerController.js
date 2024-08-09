@@ -1,8 +1,10 @@
 $('#saveButton').on('click', function () {
 
     const cusObj = {
+        id: $('#customerId').val(),
         name: $('#customerName').val(),
-        address: $('#customerAddress').val()
+        address: $('#customerAddress').val(),
+        salary: $('#customerSalary').val()
     };
 
     const token = localStorage.getItem('token');
@@ -19,7 +21,7 @@ $('#saveButton').on('click', function () {
             alert('Customer Saved Successfully...!');
         },
         error: function (xhr) {
-            alert('Customer Save Failed: ' + xhr.responseText);
+            alert('Customer Save Failed : ' + xhr.responseText);
         }
     });
 });

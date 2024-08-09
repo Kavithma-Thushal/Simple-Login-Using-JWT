@@ -2,8 +2,7 @@ $('#signupForm').submit(function (event) {
     event.preventDefault();
 
     const userData = {
-        firstName: $('#firstName').val(),
-        lastName: $('#lastName').val(),
+        name: $('#name').val(),
         email: $('#email').val(),
         password: $('#password').val(),
         role: $('#role').val()
