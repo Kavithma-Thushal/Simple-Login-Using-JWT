@@ -2,7 +2,7 @@
 
 This project demonstrates a simple and secure login system using JSON Web Tokens (JWT) for authentication. The backend
 is built with Spring Boot, and the frontend utilizes HTML, CSS, and JavaScript, with jQuery for handling UI
-interactions.
+interactions
 
 ## Tech Stack
 
