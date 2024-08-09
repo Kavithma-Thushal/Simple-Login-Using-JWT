@@ -12,6 +12,6 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class Response {
+public class JWTResponse {
     private String token;
 }

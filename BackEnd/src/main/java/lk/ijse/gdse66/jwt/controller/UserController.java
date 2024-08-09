@@ -2,7 +2,7 @@ package lk.ijse.gdse66.jwt.controller;
 
 import lk.ijse.gdse66.jwt.security.auth.request.SignIn;
 import lk.ijse.gdse66.jwt.security.auth.request.SignUp;
-import lk.ijse.gdse66.jwt.security.auth.response.Response;
+import lk.ijse.gdse66.jwt.security.auth.response.JWTResponse;
 import lk.ijse.gdse66.jwt.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +22,12 @@ public class UserController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/signup")
-    public ResponseEntity<Response> signUp(@RequestBody SignUp signUp) {
+    public ResponseEntity<JWTResponse> signUp(@RequestBody SignUp signUp) {
         return ResponseEntity.ok(authenticationService.signUp(signUp));
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<Response> signIn(@RequestBody SignIn signIn) {
+    public ResponseEntity<JWTResponse> signIn(@RequestBody SignIn signIn) {
         return ResponseEntity.ok(authenticationService.signIn(signIn));
     }
 }

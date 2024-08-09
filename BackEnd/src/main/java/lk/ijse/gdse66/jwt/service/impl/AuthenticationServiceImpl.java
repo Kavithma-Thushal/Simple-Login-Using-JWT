@@ -2,7 +2,7 @@ package lk.ijse.gdse66.jwt.service.impl;
 
 import lk.ijse.gdse66.jwt.security.auth.request.SignIn;
 import lk.ijse.gdse66.jwt.security.auth.request.SignUp;
-import lk.ijse.gdse66.jwt.security.auth.response.Response;
+import lk.ijse.gdse66.jwt.security.auth.response.JWTResponse;
 import lk.ijse.gdse66.jwt.dto.UserDTO;
 import lk.ijse.gdse66.jwt.entity.UserEntity;
 import lk.ijse.gdse66.jwt.repo.UserRepo;
@@ -35,7 +35,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final ModelMapper modelMapper;
 
     @Override
-    public Response signUp(SignUp signUp) {
+    public JWTResponse signUp(SignUp signUp) {
         UserDTO userDTO = UserDTO.builder()
                 .id(UUID.randomUUID().toString())
                 .name(signUp.getName())
@@ -45,14 +45,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .build();
         UserEntity signUpUser = userRepo.save(modelMapper.map(userDTO, UserEntity.class));
         String generatedToken = jwtService.generateToken(signUpUser);
-        return Response.builder().token(generatedToken).build();
+        return JWTResponse.builder().token(generatedToken).build();
     }
 
     @Override
-    public Response signIn(SignIn signIn) {
+    public JWTResponse signIn(SignIn signIn) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signIn.getEmail(), signIn.getPassword()));
         UserEntity signInUser = userRepo.findByEmail(signIn.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User Not Found...!"));
         String generatedToken = jwtService.generateToken(signInUser);
-        return Response.builder().token(generatedToken).build();
+        return JWTResponse.builder().token(generatedToken).build();
     }
 }
