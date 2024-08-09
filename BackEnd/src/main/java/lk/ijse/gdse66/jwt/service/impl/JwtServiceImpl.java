@@ -57,7 +57,12 @@ public class JwtServiceImpl implements JwtService {
     }
 
     private Claims getAllClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder()
+                .setSigningKey(getSignKey())
+                .setAllowedClockSkewSeconds(5L)     // Set clock skew allowance
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     private <T> T extractClaims(String token, Function<Claims, T> claimResolve) {
