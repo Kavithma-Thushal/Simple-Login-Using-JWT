@@ -1,8 +1,8 @@
 # Simple Login Using JWT
 
-This project demonstrates a simple and secure login system using JSON Web Tokens (JWT) for authentication. The backend
-is built with Spring Boot, and the frontend utilizes HTML, CSS, and JavaScript, with jQuery for handling UI
-interactions
+This project demonstrates a simple and secure login system using JSON Web Tokens (JWT) for authentication. It provides a
+clear example of how to implement JWT-based authentication in a web application, allowing for secure user login and
+session management.
 
 ## Tech Stack
 
@@ -24,19 +24,26 @@ interactions
 
 ### Features
 
-✅User Authentication: Secure signup and signin system using JWT.<br/>
-✅Role-Based Access Control: Different roles (e.g. ADMIN, USER) with specific permissions.<br/>
-✅Token-Based Security: JWT tokens are issued upon successful login and are required to access protected API routes.<br/>
-✅RESTful API: Endpoints for user registration, login, and accessing protected resources.<br/>
-✅Front-End Integration: Simple and intuitive UI for user interaction, including forms for signup and signin.<br/>
+✅User Authentication : Secure signup and signin system using JWT.<br/>
+✅Role-Based Access Control : Different roles (e.g. ADMIN, USER) with specific permissions.<br/>
+✅Token-Based Security : JWT tokens are issued upon successful login and are required to access protected API
+routes.<br/>
+✅RESTFul API : Endpoints for user registration, login, and accessing protected resources.<br/>
+✅Front-End Integration : Simple and intuitive UI for user interaction, including forms for signup and signin.<br/>
 
-## SignUp
+## Screenshots
+
+### SignUp
 
 <img src="ss/SignUp.png">
 
-## SignIn
+### SignIn
 
 <img src="ss/SignIn.png">
+
+### Customer Management
+
+<img src="ss/Customer-Management.png">
 
 ## Version
 
