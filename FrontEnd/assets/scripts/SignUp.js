@@ -1,11 +1,11 @@
-$('#signupForm').submit(function (event) {
+$('#signup-form').submit(function (event) {
     event.preventDefault();
 
     const userData = {
-        name: $('#name').val(),
-        email: $('#email').val(),
-        password: $('#password').val(),
-        role: $('#role').val()
+        name: $('#signUp-name').val(),
+        email: $('#signUp-email').val(),
+        password: $('#signUp-password').val(),
+        role: $('#signUp-role').val()
     };
 
     $.ajax({
@@ -15,7 +15,6 @@ $('#signupForm').submit(function (event) {
         data: JSON.stringify(userData),
         success: function (resp) {
             alert('SignUp Successfully...!');
-            window.location.href = '../SignIn/SignIn.html';
         },
         error: function (xhr) {
             alert('SignUp Failed : ' + xhr.responseText);

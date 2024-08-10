@@ -1,0 +1,166 @@
+* {
+    font-family: Arial;
+}
+
+.process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.process .container {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 7px;
+    position: relative;
+    overflow: hidden;
+    width: 800px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.process .container a {
+    font-size: 12px;
+    margin-top: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.process .container button {
+    background-color: #0054b0;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.process .container button.hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.process .container form {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.process .container input,
+.process .container select {
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+
+.process .form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.process .signin-form {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.process .container.active .signin-form {
+    transform: translateX(100%);
+}
+
+.process .signup-form {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.process .container.active .signup-form {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+.process .toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.process .container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.process .toggle {
+    background-color: #0054b0;
+    height: 100%;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.process .container.active .toggle {
+    transform: translateX(50%);
+}
+
+.process .toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.process .toggle-left-panel {
+    transform: translateX(-200%);
+}
+
+.process .container.active .toggle-left-panel {
+    transform: translateX(0);
+}
+
+.process .toggle-right-panel {
+    right: 0;
+    transform: translateX(0);
+}
+
+.process .container.active .toggle-right-panel {
+    transform: translateX(200%);
+}
+
+.heading {
+    font-size: 30px;
+}

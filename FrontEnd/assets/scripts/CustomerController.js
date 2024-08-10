@@ -1,4 +1,4 @@
-$('#saveButton').on('click', function () {
+$('#btnSave').on('click', function () {
 
     const cusObj = {
         id: $('#customerId').val(),

@@ -1,9 +1,9 @@
-$('#signinForm').submit(function (event) {
+$('#signin-form').submit(function (event) {
     event.preventDefault();
 
     const loginData = {
-        email: $('#email').val(),
-        password: $('#password').val()
+        email: $('#signIn-email').val(),
+        password: $('#signIn-password').val()
     };
 
     $.ajax({
@@ -14,10 +14,10 @@ $('#signinForm').submit(function (event) {
         success: function (resp) {
             alert('SignIn Successfully...!');
             localStorage.setItem('token', resp.token);
-            window.location.href = '../Customer/Customer.html';
+            window.location.href = '../../Pages/CustomerPage.html';
         },
         error: function (xhr) {
-            alert('SigniIn Failed : ' + xhr.responseText);
+            alert('SignIn Failed : ' + xhr.responseText);
         }
     });
 });
